@@ -1,0 +1,101 @@
+.search-card {
+  width: 90%;
+  max-width: 500px;
+
+  margin: 80px auto;
+  padding: 35px;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+  text-align: center;
+}
+
+.user_home_heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+
+  margin-bottom: 12px;
+}
+
+.user_search_heading {
+  font-size: 0.95rem;
+  color: #6b7280;
+
+  line-height: 1.6;
+
+  margin-bottom: 25px;
+}
+
+.search-card input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  font-size: 1rem;
+
+  outline: none;
+
+  transition: all 0.3s ease;
+}
+
+.search-card input:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.record_button {
+  width: 100%;
+
+  margin-top: 15px;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.record_button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.record_button:active {
+  transform: translateY(0);
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .search-card {
+    width: 95%;
+    padding: 25px;
+    margin-top: 50px;
+  }
+
+  .user_home_heading {
+    font-size: 1.6rem;
+  }
+
+  .user_search_heading {
+    font-size: 0.9rem;
+  }
+}
