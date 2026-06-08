@@ -7,12 +7,6 @@ export default function SearchBox({
 })
 {
 
-    console.log({
-  search,
-  setSearch,
-  handleSearch
-});
-
     return(
         <>
          <div className="search-card">

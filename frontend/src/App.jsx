@@ -1,13 +1,11 @@
 import { useState } from 'react'
-import Navbar from './components/Navbar'
-import SearchBox from './components/SearchBox'
+import Home from './pages/Home'
 
 function App() {
 
   return (
     <>
-    <Navbar/>
-    <SearchBox/>
+  <Home/>
      
     </>
   )
