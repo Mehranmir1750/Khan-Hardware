@@ -4,7 +4,15 @@ export default function SearchBox({
     search,
     setSearch,
     handleSearch,
-}){
+})
+{
+
+    console.log({
+  search,
+  setSearch,
+  handleSearch
+});
+
     return(
         <>
          <div className="search-card">
@@ -21,7 +29,10 @@ export default function SearchBox({
     />
 
 
-    <button className="record_button">Search Record</button>
+    <button 
+    className="record_button"
+    onClick={handleSearch}
+    >Search Record</button>
      </div>
     
     </>
