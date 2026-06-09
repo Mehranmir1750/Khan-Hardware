@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import Navbar from "../components/Navbar";
 import SearchBox from "../components/SearchBox";
+import BalanceCard from "../components/BalanceCard";
+
 
 export default function Home() {
 
@@ -34,6 +36,14 @@ export default function Home() {
         setSearch={setSearch}
         handleSearch={handleSearch}
       />
+
+      {customer && (
+        <BalanceCard
+        customer={customer}
+         onViewDetails={() => console.log("View Details")}
+      />
+
+      )}
     </>
   );
 }
