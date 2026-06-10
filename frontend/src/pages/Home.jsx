@@ -3,12 +3,17 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import SearchBox from "../components/SearchBox";
 import BalanceCard from "../components/BalanceCard";
+import { useNavigate } from "react-router-dom";
+import Details from "../components/Details";
 
 
 export default function Home() {
 
+  const navigate = useNavigate();
+
   const [search, setSearch] = useState("");
   const [customer, setCustomer] = useState(null);
+  const [detail, setDetail] = useState(null);
 
   const handleSearch = () => {
 
@@ -24,8 +29,20 @@ export default function Home() {
       balance: 12500,
     });
 
+    setDetail({
+      item: "Iron Nails",
+      price: 300,
+      quantity: 4
+
+    })
+
     console.log(search);
   };
+
+     const onViewDetails = () =>{
+      navigate("/details")
+
+    };
 
   return (
     <>
@@ -40,10 +57,15 @@ export default function Home() {
       {customer && (
         <BalanceCard
         customer={customer}
-         onViewDetails={() => console.log("View Details")}
+        onViewDetails={onViewDetails}
+        detail = {detail}
       />
 
       )}
+
+      <Details
+      detail={detail}
+      />
     </>
   );
 }
