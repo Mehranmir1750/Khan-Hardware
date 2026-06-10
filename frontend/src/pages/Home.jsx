@@ -13,7 +13,7 @@ export default function Home() {
 
   const [search, setSearch] = useState("");
   const [customer, setCustomer] = useState(null);
-  const [detail, setDetail] = useState(null);
+  // const [detail, setDetail] = useState(null);
 
   const handleSearch = () => {
 
@@ -29,12 +29,12 @@ export default function Home() {
       balance: 12500,
     });
 
-    setDetail({
-      item: "Iron Nails",
-      price: 300,
-      quantity: 4
+    // setDetail({
+    //   item: "Iron Nails",
+    //   price: 300,
+    //   quantity: 4
 
-    })
+    // })
 
     console.log(search);
   };
@@ -63,9 +63,7 @@ export default function Home() {
 
       )}
 
-      <Details
-      detail={detail}
-      />
+      
     </>
   );
 }
