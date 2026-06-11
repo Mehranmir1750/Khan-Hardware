@@ -13,7 +13,6 @@ export default function Home() {
 
   const [search, setSearch] = useState("");
   const [customer, setCustomer] = useState(null);
-  // const [detail, setDetail] = useState(null);
 
   const handleSearch = () => {
 
@@ -22,9 +21,9 @@ export default function Home() {
       return;
     }
 
-    // Dummy data for now
+  
     setCustomer({
-      name: "Abdul Rashid",
+      name: "Abdul Rahman",
       phone: "9541771220",
       balance: 12500,
     });
