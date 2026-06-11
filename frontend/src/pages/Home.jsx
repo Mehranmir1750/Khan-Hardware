@@ -29,12 +29,6 @@ export default function Home() {
       balance: 12500,
     });
 
-    // setDetail({
-    //   item: "Iron Nails",
-    //   price: 300,
-    //   quantity: 4
-
-    // })
 
     console.log(search);
   };
