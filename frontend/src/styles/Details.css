@@ -1,3 +1,43 @@
-.detail_component{
-    display: flex;
+.detail_component {
+  width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.detail_heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.detail_date {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.details_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.details_table th,
+.details_table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.details_table th {
+  background-color: #1e2b44;
+  color: white;
+}
+
+.balance_box {
+  margin-top: 20px;
+  padding: 12px;
+  background: #f5f5f5;
+  font-weight: bold;
+  text-align: right;
 }
