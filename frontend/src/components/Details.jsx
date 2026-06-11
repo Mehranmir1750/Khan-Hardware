@@ -30,6 +30,7 @@ export default function Details(
 
       const balance = detail.reduce(
         (sum,item) => sum + item.price * item.quantity, 0
+        
       )
     return (
         <>
