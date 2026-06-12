@@ -51,7 +51,6 @@ export default function Home() {
         <BalanceCard
         customer={customer}
         onViewDetails={onViewDetails}
-        detail = {detail}
       />
 
       )}
