@@ -1,7 +1,34 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/Login.css"
 import { FaArrowLeft } from "react-icons/fa";
+import { useState } from "react";
 
 export default function Login(){
+
+    const navigate = useNavigate();
+
+
+    const  [username, setUsername] = useState("");
+    const  [password, setPassword] = useState("");
+   
+
+
+    const adminCheck = () => {
+
+        if( 
+            (username === "admin@gmail.com" || username === "admin") &&
+  password === "1234567890"
+
+        ){
+            navigate('/')
+        }
+        else{
+            alert('enter correct details')
+        }
+
+    }
+
+
 
     return(
         <>
@@ -28,16 +55,24 @@ export default function Login(){
                     <label>Email/Username</label>
                     <input
 
-                    placeholder="Enter username or email"></input>
+                    placeholder="Enter username or email"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                     
+                     ></input>
 
                     <label>Password</label>
                     <input
+                    value={password}
                     type="password"
-                    placeholder="Enter Password"></input>
+                    placeholder="Enter Password"
+                    onChange={ (e) => setPassword(e.target.value)}></input>
 
-                    <button className="login_btn">
-    Login
-</button>
+                    <button
+                     className="login_btn"
+                     onClick={adminCheck}> 
+                     Login
+                     </button>
                     </div>
                     
                 </div>
