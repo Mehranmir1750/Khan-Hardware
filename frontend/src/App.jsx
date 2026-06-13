@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 // import Details from './components/Details';
 import Details from './pages/Details';
 import Login from './pages/Login';
+import Admin from './pages/Admin';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/details" element={<Details />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/admin-dashboard" element={<Admin />} />
 
     </Routes>
  

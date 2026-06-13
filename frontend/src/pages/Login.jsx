@@ -20,7 +20,7 @@ export default function Login(){
   password === "1234567890"
 
         ){
-            navigate('/')
+            navigate('/admin-dashboard')
         }
         else{
             alert('enter correct details')
