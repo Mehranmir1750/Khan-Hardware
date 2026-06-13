@@ -1,0 +1,116 @@
+.customer_container{
+    margin-left: 260px;
+    margin-top: 100px;
+
+    padding: 20px;
+}
+
+.customer_heading{
+    margin-bottom: 20px;
+
+    color: #111827;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.customer_table{
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.customer_table thead{
+    background: #111827;
+    color: white;
+}
+
+.customer_table th{
+    padding: 16px;
+    text-align: left;
+}
+
+.customer_table td{
+    padding: 14px 16px;
+}
+
+.customer_table tbody tr{
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.customer_table tbody tr:hover{
+    background: #f8fafc;
+}
+
+.view_btn{
+    background: #2563eb;
+    color: white;
+
+    border: none;
+
+    padding: 8px 14px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    margin-right: 8px;
+}
+
+.view_btn:hover{
+    background: #1d4ed8;
+}
+
+.edit_btn{
+    background: #10b981;
+    color: white;
+
+    border: none;
+
+    padding: 8px 14px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.edit_btn:hover{
+    background: #059669;
+}
+
+.negative_amount{
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.positive_amount{
+    color: #16a34a;
+    font-weight: bold;
+}
+
+/* MOBILE */
+
+@media(max-width: 768px){
+
+    .customer_container{
+        margin-left: 190px;
+        padding: 10px;
+    }
+
+    .customer_table{
+        font-size: 0.85rem;
+    }
+
+    .view_btn,
+    .edit_btn{
+        padding: 6px 10px;
+    }
+}

@@ -6,8 +6,9 @@ import { Routes, Route } from "react-router-dom";
 import Details from './pages/Details';
 import Login from './pages/Login';
 import Admin from './pages/Admin';
-
-
+import AddCustomer from './pages/AddCustomer';
+import Customer from './pages/Customer';
+import Transactions from './pages/Transaction';
 function App() {
 
   return (
@@ -18,6 +19,9 @@ function App() {
       <Route path="/details" element={<Details />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin-dashboard" element={<Admin />} />
+      <Route path="/add-customer" element={<AddCustomer />} />
+      <Route path='/Customer' element={<Customer/>} />
+      <Route path='/Transactions' element={<Transactions/>} />
 
     </Routes>
  
