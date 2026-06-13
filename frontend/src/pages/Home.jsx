@@ -4,7 +4,8 @@ import Navbar from "../components/Navbar";
 import SearchBox from "../components/SearchBox";
 import BalanceCard from "../components/BalanceCard";
 import { useNavigate } from "react-router-dom";
-import Details from "../components/Details";
+// import Details from "../components/Details";
+import Details from "./Details";
 
 
 export default function Home() {
