@@ -1,5 +1,5 @@
 import "../styles/Login.css"
-
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function Login(){
 
@@ -9,9 +9,10 @@ export default function Login(){
 
          <nav className="admin_navbar">
         
-                    <a href="/login" className="Login-icon">
-                    <FaUserShield/>
-                    </a>
+                    
+                    <a href="/" className="back_home">
+    <FaArrowLeft /> Back
+</a>
         
         
                     <h2 className="admin_navbar_heading">Khan Hardware</h2>
@@ -19,6 +20,27 @@ export default function Login(){
                     <span className="admin_contact">Contact: 9797742444</span>
         
                 </nav>
+
+                <div className="login_page">
+                    <div className="login_container">
+                        <h5 className="login_heading">Admin Login</h5>
+
+                    <label>Email/Username</label>
+                    <input
+
+                    placeholder="Enter username or email"></input>
+
+                    <label>Password</label>
+                    <input
+                    type="password"
+                    placeholder="Enter Password"></input>
+
+                    <button className="login_btn">
+    Login
+</button>
+                    </div>
+                    
+                </div>
         
         
         
