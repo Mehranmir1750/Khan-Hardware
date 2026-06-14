@@ -53,7 +53,19 @@ export default function Transactions() {
               <tr key={index}>
                 <td>{transaction.date}</td>
                 <td>{transaction.customer}</td>
-                <td>{transaction.type}</td>
+
+
+                <td
+                className={
+                transaction.type === "Purchase" ? "purchase" : "payment"
+                           }
+                 >
+                {transaction.type}
+                </td>
+                
+
+
+
                 <td>{transaction.item}</td>
                 <td>{transaction.quantity}</td>
                 <td>{transaction.price === "-" ? "-" : `₹${transaction.price}`}</td>

@@ -9,8 +9,10 @@ export default function AdminNavbar(){
 
     <a href="/admin-dashboard">Dashboard</a>
     <a href="/Customer">Customers</a>
-    <a href="/Transactions">Transactions</a>
     <a href="/add-customer">Add Customer</a>
+    <a href="/Transactions">Transactions</a>
+    <a href="/add-transactions">Add Transactions</a>
+    
         <a href="/logout" className="logout">Log out</a>
     </div>
 
