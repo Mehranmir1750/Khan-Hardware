@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 /* ══════════════════════════════════
    CONTAINER
 ══════════════════════════════════ */
-.user_add_container {
+.transaction_form {
   margin-left: 200px;
   margin-top: 62px;
   min-height: calc(100vh - 62px);
@@ -15,9 +15,9 @@
 }
 
 /* ══════════════════════════════════
-   FORM CARD
+   ALL CHILDREN MAX WIDTH
 ══════════════════════════════════ */
-.user_add_container > * {
+.transaction_form > * {
   width: 100%;
   max-width: 460px;
 }
@@ -25,7 +25,7 @@
 /* ══════════════════════════════════
    HEADING
 ══════════════════════════════════ */
-.form_heading {
+.transaction_form h2 {
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;
   font-weight: 600;
@@ -35,34 +35,24 @@
 }
 
 /* ══════════════════════════════════
-   FORM WRAPPER (visual card)
+   LABELS
 ══════════════════════════════════ */
-.user_add_container label:first-of-type {
-  margin-top: 0;
-}
-
-/* Wrap label + input pairs in a card feel */
-.user_add_container {
-  /* card behind all fields */
-}
-
-/* We simulate a card by styling the block */
-.user_add_container label {
+.transaction_form label {
   font-family: 'Inter', sans-serif;
   font-size: 0.76rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: #9e927e;
-  margin-bottom: 6px;
   margin-top: 18px;
+  margin-bottom: 6px;
   display: block;
 }
 
 /* ══════════════════════════════════
    INPUTS
 ══════════════════════════════════ */
-.user_add_container input {
+.transaction_form input {
   width: 100%;
   max-width: 460px;
   padding: 11px 14px;
@@ -76,20 +66,89 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.user_add_container input:focus {
+.transaction_form input:focus {
   border-color: #b5936a;
   box-shadow: 0 0 0 3px rgba(181, 147, 106, 0.12);
 }
 
-.user_add_container input::placeholder {
+.transaction_form input::placeholder {
   color: #c5bbae;
   font-size: 0.85rem;
 }
 
+/* Read-only amount field */
+.transaction_form input[readonly] {
+  background: #faf6f0;
+  color: #b5936a;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  border-color: #e8e2d9;
+  cursor: default;
+}
+
+.transaction_form input[readonly]:focus {
+  box-shadow: none;
+  border-color: #e8e2d9;
+}
+
 /* ══════════════════════════════════
-   BUTTON
+   SELECTS
 ══════════════════════════════════ */
-.create-user-btn {
+.transaction_form select {
+  width: 100%;
+  max-width: 460px;
+  padding: 11px 14px;
+  border: 1.5px solid #e2d9cc;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  color: #2c2416;
+  background: #ffffff;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239e927e' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-top: 18px;
+}
+
+.transaction_form select:focus {
+  border-color: #b5936a;
+  box-shadow: 0 0 0 3px rgba(181, 147, 106, 0.12);
+}
+
+/* ══════════════════════════════════
+   ADD CUSTOMER LINK BUTTON
+══════════════════════════════════ */
+.add_customer_btn {
+  width: 100%;
+  max-width: 460px;
+  padding: 9px 14px;
+  margin-top: 8px;
+  background: transparent;
+  border: 1.5px dashed #d6cfc4;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #9e927e;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.add_customer_btn:hover {
+  border-color: #b5936a;
+  color: #b5936a;
+  background: #fdf9f5;
+}
+
+/* ══════════════════════════════════
+   SUBMIT BUTTON
+══════════════════════════════════ */
+.transaction_form button:last-child {
   width: 100%;
   max-width: 460px;
   padding: 13px;
@@ -106,12 +165,12 @@
   transition: background 0.2s, box-shadow 0.2s;
 }
 
-.create-user-btn:hover {
+.transaction_form button:last-child:hover {
   background: #9a7855;
   box-shadow: 0 4px 14px rgba(154, 120, 85, 0.22);
 }
 
-.create-user-btn:active {
+.transaction_form button:last-child:active {
   background: #7a6040;
 }
 
@@ -119,7 +178,7 @@
    RESPONSIVE
 ══════════════════════════════════ */
 @media (max-width: 768px) {
-  .user_add_container {
+  .transaction_form {
     margin-left: 0;
     padding: 80px 16px 40px;
   }

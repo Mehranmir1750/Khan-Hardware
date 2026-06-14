@@ -1,4 +1,5 @@
 import AdminNavbar from "../components/AdminNavbar";
+import "../styles/Admin.css"
 
 export default function Admin(){
     return(

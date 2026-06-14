@@ -1,88 +1,64 @@
-*{
-    margin: 0;
-}
-.user_navbar{
-    background: #1f2937;
-    color: white;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap');
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 30px;
-
-    min-height: 70px;
-
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    gap: 5px;
+.user_navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 32px 18px;
+  background: #ffffff;
+  border-bottom: 1px solid #e8e2d9;
+  box-shadow: 0 2px 16px rgba(180, 160, 120, 0.10);
+  position: relative;
 }
 
-.user_navbar_heading{
-    font-size: 1.7rem;
-    font-weight: 700;
+/* Admin login icon — top right */
+.Login-icon {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  color: #a08c6e;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
-.address, .contact{
-    font-size: 0.95rem;
-    opacity: 0.9;
+.Login-icon:hover {
+  color: #7a6448;
 }
 
-
-
-@media(max-width: 768px){
-
-    .user_navbar{
-        flex-direction:column ;
-        gap: 5px;
-        text-align: center;
-        padding: 15px;
-    }
-
-    .user_navbar_heading{
-        font-size: 1.4rem;
-    }
-
-    .address, .contact{
-    font-size: 0.95rem;
-    opacity: 0.85;
+/* Shop name */
+.user_navbar_heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2c2416;
+  letter-spacing: 0.02em;
+  margin: 0 0 4px;
 }
 
+/* Address */
+.address {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #9e927e;
+  letter-spacing: 0.03em;
+  margin-bottom: 2px;
 }
 
-
-
-.user_navbar{
-    position: relative;
-    background: #1f2937;
-    color: white;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    padding: 15px 30px;
-    min-height: 70px;
-
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    gap: 5px;
+/* Contact */
+.contact {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #b5936a;
+  letter-spacing: 0.02em;
 }
 
-.Login-icon{
-    position: absolute;
-    top: 20px;
-    right: 25px;
-
-    color: white;
-    font-size: 1.5rem;
-
-    text-decoration: none;
-
-    transition: 0.3s ease;
+/* Mobile */
+@media (max-width: 480px) {
+  .user_navbar_heading { font-size: 1.4rem; }
+  .Login-icon { font-size: 1.1rem; top: 14px; right: 16px; }
+  .user_navbar { padding: 18px 16px 14px; }
 }
-
-.Login-icon:hover{
-    transform: scale(1.15);
-    color: #d1d5db;
-}
-

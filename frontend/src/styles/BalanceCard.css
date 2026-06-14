@@ -1,99 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap');
+
+/* ── Card ── */
 .balance-card {
-  width: 90%;
-  max-width: 500px;
-
-  margin: 30px auto;
-  padding: 30px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  margin: 20px auto 0;
+  padding: 32px 28px;
   background: #ffffff;
-
-  border-radius: 16px;
-
-  text-align: center;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-
-  transition: transform 0.3s ease;
+  border: 1px solid #e8e2d9;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(180, 160, 120, 0.10);
 }
 
-.balance-card:hover {
-  transform: translateY(-3px);
-}
-
+/* ── Customer name ── */
 .balance-card h2 {
-  font-size: 1.7rem;
-  color: #1f2937;
-  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c2416;
+  margin: 0 0 4px;
+  text-align: center;
 }
 
+/* ── Phone ── */
 .balance-card p {
-  color: #6b7280;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #9e927e;
+  margin: 0 0 24px;
 }
 
+/* ── Balance box ── */
 .balance-box {
-  background: #ecfdf5;
-  color: #059669;
-
+  width: 100%;
+  text-align: center;
+  padding: 18px 0;
+  background: #faf8f5;
+  border: 1px solid #e8e2d9;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
   font-size: 2rem;
-  font-weight: 700;
-
-  padding: 20px;
-
-  border-radius: 12px;
-
-  margin-bottom: 25px;
-
-  border: 1px solid #a7f3d0;
+  font-weight: 600;
+  color: #c0392b;
+  letter-spacing: 0.01em;
+  margin-bottom: 22px;
 }
 
+/* ── Details button ── */
 .details-btn {
   width: 100%;
-
-  padding: 14px;
-
-  border: none;
-  border-radius: 10px;
-
-  background: #2563eb;
-  color: white;
-
-  font-size: 1rem;
+  padding: 13px;
+  background: transparent;
+  border: 1.5px solid #b5936a;
+  border-radius: 8px;
+  color: #b5936a;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
   font-weight: 600;
-
   cursor: pointer;
-
-  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
 .details-btn:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
+  background: #b5936a;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(154, 120, 85, 0.20);
 }
 
 .details-btn:active {
-  transform: translateY(0);
+  background: #9a7855;
+  border-color: #9a7855;
+  color: #ffffff;
 }
 
-/* Mobile */
-
-@media (max-width: 768px) {
+/* ── Mobile ── */
+@media (max-width: 480px) {
   .balance-card {
-    width: 95%;
-    padding: 25px;
+    margin: 16px 16px 0;
+    padding: 24px 18px;
   }
 
-  .balance-card h2 {
-    font-size: 1.4rem;
-  }
-
-  .balance-box {
-    font-size: 1.7rem;
-    padding: 16px;
-  }
-
-  .details-btn {
-    font-size: 0.95rem;
-  }
+  .balance-box { font-size: 1.65rem; }
+  .balance-card h2 { font-size: 1.2rem; }
 }

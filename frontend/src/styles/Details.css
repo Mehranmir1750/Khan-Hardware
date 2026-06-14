@@ -1,43 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ── Page wrapper ── */
 .detail_component {
-  width: 800px;
-  margin: 40px auto;
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 680px;
+  margin: 44px auto 48px;
+  padding: 0 16px;
 }
 
+/* ── Heading ── */
 .detail_heading {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.detail_date {
-  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
   font-weight: 600;
+  color: #2c2416;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
+/* ── Table card ── */
 .details_table {
   width: 100%;
   border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #e8e2d9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(180, 160, 120, 0.10);
 }
 
-.details_table th,
-.details_table td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: center;
+/* ── Header ── */
+.details_table thead tr {
+  background: #faf6f0;
+  border-bottom: 1.5px solid #e2d9cc;
 }
 
-.details_table th {
-  background-color: #1e2b44;
-  color: white;
+.details_table thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9e927e;
+  padding: 13px 16px;
+  text-align: left;
 }
 
-.balance_box {
-  margin-top: 20px;
-  padding: 12px;
-  background: #f5f5f5;
-  font-weight: bold;
+/* ── Body rows ── */
+.details_table tbody tr {
+  border-bottom: 1px solid #f0ebe3;
+  transition: background 0.15s;
+}
+
+.details_table tbody tr:hover {
+  background: #fdf9f5;
+}
+
+.details_table tbody td {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #3a3020;
+  padding: 13px 16px;
+  vertical-align: middle;
+}
+
+/* Date column — monospace */
+.details_table tbody td:first-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: #9e927e;
+  white-space: nowrap;
+}
+
+/* Amount column — monospace + right-align */
+.details_table tbody td:last-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 500;
   text-align: right;
+}
+
+/* Payment row — green tint */
+.details_table tbody tr.payment-row {
+  background: #f4faf6;
+}
+
+.details_table tbody tr.payment-row:hover {
+  background: #eaf5ee;
+}
+
+/* ── Balance row ── */
+.details_table tbody tr:last-child {
+  background: #faf6f0;
+  border-top: 1.5px solid #e2d9cc;
+  border-bottom: none;
+}
+
+.details_table tbody tr:last-child td {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c2416;
+  padding: 15px 16px;
+}
+
+.details_table tbody tr:last-child td:last-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c0392b;
+  text-align: right;
+}
+
+/* ── Mobile — horizontal scroll ── */
+@media (max-width: 560px) {
+  .detail_component {
+    margin: 28px auto 36px;
+    padding: 0 10px;
+  }
+
+  .detail_heading { font-size: 1.25rem; }
+
+  .details_table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid #e8e2d9;
+    box-shadow: 0 4px 24px rgba(180, 160, 120, 0.10);
+  }
+
+  .details_table {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-width: 480px;
+  }
+
+  .details_table thead th,
+  .details_table tbody td {
+    padding: 11px 12px;
+  }
 }
