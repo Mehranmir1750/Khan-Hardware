@@ -6,9 +6,12 @@ const pool = require("./db");
 
 const app = express();
 
+const customerRoutes = require("./routes/customerRoutes");
 
 app.use(cors());
 app.use(express.json());
+
+app.use("/api/customers", customerRoutes);
 
 app.get("/", async(req,res) => {
     try{
