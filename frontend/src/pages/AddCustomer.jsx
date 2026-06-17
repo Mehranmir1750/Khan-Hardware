@@ -1,8 +1,46 @@
+import { useState } from "react";
+import axios from "axios";
+
 import AdminNavbar from "../components/AdminNavbar"
 import "../styles/AddCustomer.css"
 
 
 export default function AddCustomer(){
+
+
+    const [name, setName] = useState("");
+const [phone, setPhone] = useState("");
+const [address, setAddress] = useState("");
+
+
+const addCustomer = async () =>{
+
+    try{
+
+        const response = await axios.post(
+            "http://localhost:5000/api/customers",
+            {
+                name, 
+                phone,
+                address
+            }
+        );
+        alert("Customer Added Sucessfully");
+
+        console.log(response.data);
+
+        setName("");
+        setPhone("");
+        setAddress("");
+        
+    } catch(err){
+        console.error(err);
+
+        alert("Failed to add customer");
+        }
+};
+
+
     return(
         <>
 
@@ -16,21 +54,31 @@ export default function AddCustomer(){
     </h2>
 
             <label>Customer Name</label>
-            <input 
+            <input
+            value={name}
+            onChange={(e) => setName(e.target.value)} 
             placeholder="Enter customer's name"
             ></input>
 
             <label>Customer Phone Number</label>
             <input 
+            value={phone}
+            onChange={(e)=> setPhone(e.target.value)}
             placeholder="Enter customer's Phone Number"
             ></input>
 
             <label>Customer Address</label>
             <input 
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
             placeholder="Enter customer's Address"
             ></input>
 
-            <button className="create-user-btn">Add User</button>
+            <button 
+            className="create-user-btn"
+            onClick={addCustomer}
+            
+            >Add User</button>
 
         </div>
         
