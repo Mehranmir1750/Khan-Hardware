@@ -2,6 +2,8 @@ import { useState } from "react";
 import AdminNavbar from "../components/AdminNavbar";
 import { useNavigate } from "react-router-dom";
 import "../styles/AddTransaction.css"
+import axios from "axios";
+
 export default function AddTransaction() {
 
   const [customer, setCustomer] = useState("");
@@ -13,6 +15,16 @@ export default function AddTransaction() {
 
   const amount = (Number(quantity) || 0) * (Number(price) || 0);
   const navigate = useNavigate();
+
+
+  const transactions = async () => {
+
+    try{
+
+    }catch{
+
+    }
+  }
 
   return (
     <>

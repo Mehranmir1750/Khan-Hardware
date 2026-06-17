@@ -1,22 +1,30 @@
 import AdminNavbar from "../components/AdminNavbar";
 import "../styles/Customer.css";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Customer() {
 
-  const customers = [
-    {
-      name: "Abdul Rahman",
-      phone: "9541771220",
-      address: "Chanapora",
-      amount: 12500
-    },
-    {
-      name: "Rashid Ahmad",
-      phone: "7006123456",
-      address: "Hyderpora",
-      amount: -5000
+  const [customers, setCustomers] = useState([]);
+
+
+  const getCustomers = async () =>{
+    try{
+
+      const response = await axios.get(
+        "http://localhost:5000/api/customers"
+      )
+      setCustomers(response.data);
+
+    }catch(err){
+      console.error(err);
+
     }
-  ];
+  }
+
+  useEffect(() => {
+  getCustomers();
+}, []);
 
   return (
     <>
@@ -57,7 +65,7 @@ export default function Customer() {
                       : "negative_amount"
                   }
                 >
-                  ₹{customer.amount}
+                  ₹0
                 </td>
 
                 <td className="action_buttons">
