@@ -1,11 +1,13 @@
-import { useState } from "react";
+
 import AdminNavbar from "../components/AdminNavbar";
 import { useNavigate } from "react-router-dom";
 import "../styles/AddTransaction.css"
 import axios from "axios";
+import { useState, useEffect } from "react";
 
 export default function AddTransaction() {
 
+  const [customers, setCustomers] = useState([]);
   const [customer, setCustomer] = useState("");
   const [item, setItem] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -17,14 +19,59 @@ export default function AddTransaction() {
   const navigate = useNavigate();
 
 
-  const transactions = async () => {
+  const getCustomers = async () => {
+  try {
+
+    const response = await axios.get(
+      "http://localhost:5000/api/customers"
+    );
+
+    setCustomers(response.data);
+
+  } catch (err) {
+
+    console.error(err);
+
+  }
+};
+
+
+
+
+  const addTransactions = async () => {
 
     try{
 
-    }catch{
+      const response = await axios.post(
+        "http://localhost:5000/api/transactions",{
+          customer,
+          type,
+          item,
+          quantity,
+          price,
+          amount
+        }
+
+      );
+      alert("Transaction added")
+      setCustomer("")
+      setItem("")
+      setAmountPaid("")
+      setType("")
+      setQuantity("")
+
+    }catch(err){
+      console.error(err);
+
+        alert("Failed to add customer");
 
     }
   }
+
+
+  useEffect(() => {
+  getCustomers();
+}, []);
 
   return (
     <>
@@ -35,16 +82,33 @@ export default function AddTransaction() {
         <h2>Add Transaction</h2>
 
         <label>Customer</label>
-        <select
-          value={customer}
-          onChange={(e) => setCustomer(e.target.value)}
-        >
-          <option value="">Select Customer</option>
-          <option value="Abdul Rahman">Abdul Rahman</option>
-          <option value="Rashid Ahmad">Rashid Ahmad</option>
-          
+        
 
-        </select>
+
+
+
+        <select
+  value={customer}
+  onChange={(e) => setCustomer(e.target.value)}
+>
+  <option value="">
+    Select Customer
+  </option>
+
+  {customers.map((customer) => (
+    <option
+      key={customer.id}
+      value={customer.id}
+    >
+      {customer.name}
+    </option>
+  ))}
+</select>
+
+
+
+
+
         <button
   className="add_customer_btn"
   onClick={() => navigate("/add-customer")}
@@ -105,7 +169,8 @@ export default function AddTransaction() {
   </>
 )}
 
-        <button>
+        <button
+        onClick={addTransactions}>
           Create Transaction
         </button>
 
