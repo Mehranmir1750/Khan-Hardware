@@ -14,28 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/customers", customerRoutes);
-app.use(
-  "/api/transaction",
-  transactionRoutes
-);
+app.use("/api/transaction",transactionRoutes);
 
-app.use(
-  "/api/dashboard",
-  dashboardRoutes
-);
+app.use("/api/dashboard",dashboardRoutes);
 
-
-app.get("/", async(req,res) => {
-    try{
-        const result = await pool.query("SELECT NOW()");
-        res.json(result.rows);
-    }catch(err){
-        console.error(err);
-        res.status(500).json({
-            error:err.message,
-        });
-    }
-});
 
 app.listen(process.env.PORT, () => {
   console.log(
