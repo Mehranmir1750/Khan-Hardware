@@ -63,12 +63,22 @@ router.get("/", async (req, res) => {
   try {
 
     const result = await pool.query(
-      `
-      SELECT *
-      FROM transaction
-      ORDER BY id DESC
-      `
-    );
+ `
+ SELECT
+    t.id,
+    c.name AS customer_name,
+    t.type,
+    t.item,
+    t.quantity,
+    t.price,
+    t.amount,
+    t.created_at
+ FROM transaction t
+ JOIN customers c
+ ON t.customer_id = c.id
+ ORDER BY t.id DESC
+ `
+);
 
     res.json(result.rows);
 

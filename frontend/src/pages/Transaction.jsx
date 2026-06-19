@@ -1,28 +1,31 @@
+import axios from "axios";
 import AdminNavbar from "../components/AdminNavbar";
 import "../styles/Transactions.css";
+import { useState, useEffect } from "react";
 
 export default function Transactions() {
 
-  const transactions = [
-    {
-      date: "12/06/2026",
-      customer: "Abdul Rahman",
-      type: "Purchase",
-      item: "Iron Nails",
-      quantity: 4,
-      price: 300,
-      amount: 1200
-    },
-    {
-      date: "13/06/2026",
-      customer: "Rashid Ahmad",
-      type: "Payment",
-      item: "-",
-      quantity: "-",
-      price: "-",
-      amount: 1000
-    }
-  ];
+
+  const [transactions, setTransactions] = useState([]);
+
+const getTransactions = async () =>{
+  try{
+
+    const response = await axios.get(
+      "http://localhost:5000/api/transaction"
+    )
+    setTransactions(response.data);
+
+  }catch(err){
+
+    console.error(err)
+  }
+}
+
+
+  useEffect(() => {
+  getTransactions();
+}, []);
 
   return (
     <>
@@ -51,8 +54,11 @@ export default function Transactions() {
           <tbody>
             {transactions.map((transaction, index) => (
               <tr key={index}>
-                <td>{transaction.date}</td>
-                <td>{transaction.customer}</td>
+                <td>
+  {new Date(transaction.created_at)
+    .toLocaleDateString()}
+</td>
+                <td>{transaction.customer_name}</td>
 
 
                 <td

@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use("/api/customers", customerRoutes);
 app.use(
-  "/api/transactions",
+  "/api/transaction",
   transactionRoutes
 );
 
