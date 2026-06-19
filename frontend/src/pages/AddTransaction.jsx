@@ -42,17 +42,31 @@ export default function AddTransaction() {
 
     try{
 
-      const response = await axios.post(
-        "http://localhost:5000/api/transactions",{
-          customer,
-          type,
-          item,
-          quantity,
-          price,
-          amount
-        }
+      // const response = await axios.post(
+      //   "http://localhost:5000/api/transaction",{
+      //     customer,
+      //     type,
+      //     item,
+      //     quantity,
+      //     price,
+      //     amount: type === "Payment"
+      // ? amountPaid
+      // : amount
+      //   }
 
-      );
+      // );
+
+      await axios.post(
+  "http://localhost:5000/api/transaction",
+  {
+    customer,
+    type,
+    item: type === "Payment" ? null : item,
+    quantity: type === "Payment" ? null : quantity,
+    price: type === "Payment" ? null : price,
+    amount: type === "Payment" ? amountPaid : amount
+  }
+);
       alert("Transaction added")
       setCustomer("")
       setItem("")
@@ -63,7 +77,7 @@ export default function AddTransaction() {
     }catch(err){
       console.error(err);
 
-        alert("Failed to add customer");
+        alert("Failed to add transaction");
 
     }
   }

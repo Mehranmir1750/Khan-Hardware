@@ -159,3 +159,13 @@
     overflow-x: auto;
   }
 }
+
+.purchase{
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.payment{
+  color: #16a34a;
+  font-weight: 600;
+}

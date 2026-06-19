@@ -8,6 +8,7 @@ const app = express();
 
 const customerRoutes = require("./routes/customerRoutes");
 const transactionRoutes = require("./routes/transactionRoutes");
+const dashboardRoutes =require("./routes/dashboardRoutes");
 
 app.use(cors());
 app.use(express.json());
@@ -17,6 +18,12 @@ app.use(
   "/api/transaction",
   transactionRoutes
 );
+
+app.use(
+  "/api/dashboard",
+  dashboardRoutes
+);
+
 
 app.get("/", async(req,res) => {
     try{
