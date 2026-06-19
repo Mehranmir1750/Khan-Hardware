@@ -1,46 +1,68 @@
 import Navbar from "../components/Navbar";
 import "../styles/Details.css"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+
+
 
 export default function Details() {
 
-  const transactions = [
-    {
-      date: "12/05/2026",
-      type: "purchase",
-      item: "Iron Nails",
-      quantity: 4,
-      price: 300,
-    },
-    {
-      date: "04/06/2026",
-      type: "purchase",
-      item: "Pipe",
-      quantity: 2,
-      price: 800,
-    },
-    {
-      date: "08/06/2026",
-      type: "payment",
-      amount: 1000,
-    },
-    {
-      date: "11/06/2026",
-      type: "purchase",
-      item: "Hammer",
-      quantity: 1,
-      price: 500,
-    },
-  ];
+  const [transaction, setTransactions] = useState([]);
 
-  const balance = transactions.reduce((sum, transaction) => {
+const { id } = useParams();
 
-    if (transaction.type === "purchase") {
-      return sum + transaction.price * transaction.quantity;
+
+
+
+const getTransactions = async () => {
+
+  try {
+
+    const response = await axios.get(
+      `http://localhost:5000/api/transaction/customer/${id}`
+    );
+
+    setTransactions(response.data);
+
+  } catch (err) {
+
+    console.error(err);
+
+  }
+
+};
+
+useEffect(() => {
+  getTransactions();
+}, []);
+
+
+
+
+
+  // const balance = transactions.reduce((sum, transaction) => {
+
+  //   if (transaction.type === "purchase") {
+  //     return sum + transaction.price * transaction.quantity;
+  //   }
+
+  //   return sum - transaction.amount;
+
+  // }, 0);
+
+  const balance = transaction.reduce(
+  (sum, transaction) => {
+
+    if (transaction.type === "Purchase") {
+      return sum + Number(transaction.amount);
     }
 
-    return sum - transaction.amount;
+    return sum - Number(transaction.amount);
 
-  }, 0);
+  },
+  0
+);
 
   return (
     <>
@@ -66,13 +88,17 @@ export default function Details() {
 
           <tbody>
 
-            {transactions.map((transaction, index) => (
+            {transaction.map((transaction, index) => (
 
               <tr key={index}>
 
-                <td>{transaction.date}</td>
+                {/* <td>{transaction.date}</td> */}
+                <td>
+  {new Date(transaction.created_at)
+    .toLocaleDateString()}
+</td>
 
-                {transaction.type === "purchase" ? (
+                {transaction.type === "Purchase" ? (
                   <>
                     <td>{transaction.item}</td>
                     <td>{transaction.quantity}</td>
@@ -98,7 +124,7 @@ export default function Details() {
 
             ))}
 
-            <tr>
+            {/* <tr>
               <td colSpan="4">
                 <strong>Outstanding Balance</strong>
               </td>
@@ -108,7 +134,30 @@ export default function Details() {
                   ₹{balance}
                 </strong>
               </td>
-            </tr>
+            </tr> */}
+
+            <tr>
+  <td colSpan="4">
+    <strong>
+      {balance >= 0
+        ? "Outstanding Balance"
+        : "Advance Balance"}
+    </strong>
+  </td>
+
+  <td>
+    <strong
+      style={{
+        color:
+          balance >= 0
+            ? "#dc2626"
+            : "#16a34a"
+      }}
+    >
+      ₹{Math.abs(balance)}
+    </strong>
+  </td>
+</tr>
 
           </tbody>
 

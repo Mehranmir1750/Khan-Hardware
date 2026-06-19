@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 /* ── Card ── */
 .balance-card {
@@ -16,7 +16,7 @@
 }
 
 /* ── Customer name ── */
-.balance-card h2 {
+.balance-card > h2 {
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;
   font-weight: 600;
@@ -26,27 +26,59 @@
 }
 
 /* ── Phone ── */
-.balance-card p {
+.balance-card > p {
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   color: #9e927e;
   margin: 0 0 24px;
 }
 
-/* ── Balance box ── */
+/* ── Balance box base ── */
 .balance-box {
   width: 100%;
   text-align: center;
-  padding: 18px 0;
-  background: #faf8f5;
-  border: 1px solid #e8e2d9;
+  padding: 20px 16px;
   border-radius: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 2rem;
-  font-weight: 600;
-  color: #c0392b;
-  letter-spacing: 0.01em;
   margin-bottom: 22px;
+  border: 1px solid #e8e2d9;
+  background: #faf8f5;
+}
+
+/* Label */
+.balance-box h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #b5aba0;
+  margin: 0 0 8px;
+}
+
+/* Amount — shared */
+.balance-box p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Amount Due — red */
+.balance-box.due {
+  background: #fdf5f5;
+  border-color: #f0c8c8;
+}
+.balance-box.due p {
+  color: #c0392b;
+}
+
+/* Advance Balance — green */
+.balance-box.advance {
+  background: #f4faf6;
+  border-color: #c8e6d4;
+}
+.balance-box.advance p {
+  color: #1e7e45;
 }
 
 /* ── Details button ── */
@@ -79,11 +111,7 @@
 
 /* ── Mobile ── */
 @media (max-width: 480px) {
-  .balance-card {
-    margin: 16px 16px 0;
-    padding: 24px 18px;
-  }
-
-  .balance-box { font-size: 1.65rem; }
-  .balance-card h2 { font-size: 1.2rem; }
+  .balance-card { margin: 16px 16px 0; padding: 24px 18px; }
+  .balance-box p { font-size: 1.65rem; }
+  .balance-card > h2 { font-size: 1.2rem; }
 }

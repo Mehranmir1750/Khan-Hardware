@@ -6,6 +6,7 @@ import BalanceCard from "../components/BalanceCard";
 import { useNavigate } from "react-router-dom";
 // import Details from "../components/Details";
 import Details from "./Details";
+import axios from "axios";
 
 
 export default function Home() {
@@ -15,26 +16,34 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [customer, setCustomer] = useState(null);
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
 
     if (!search.trim()) {
       alert("Enter phone number or name");
       return;
     }
 
-  
-    setCustomer({
-      name: "Abdul Rahman",
-      phone: "9541771220",
-      balance: 12500,
-    });
+    try {
 
+  const response = await axios.get(
+    `http://localhost:5000/api/customers/search/${search}`
+  );
 
-    console.log(search);
+  console.log(response.data);
+
+  setCustomer(response.data);
+
+} catch (err) {
+
+  alert("Customer not found");
+
+  setCustomer(null);
+
+}
   };
 
      const onViewDetails = () =>{
-      navigate("/details")
+      navigate(`/details/${customer.id}`)
 
     };
 

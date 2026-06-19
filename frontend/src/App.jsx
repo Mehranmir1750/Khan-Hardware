@@ -10,6 +10,7 @@ import AddCustomer from './pages/AddCustomer';
 import Customer from './pages/Customer';
 import Transactions from './pages/Transaction';
 import AddTransaction from './pages/AddTransaction';
+
 function App() {
 
   return (
@@ -25,6 +26,10 @@ function App() {
       <Route path='/Transactions' element={<Transactions/>} />
       <Route path='/add-transactions' element={<AddTransaction/>} />
       <Route path='/logout' element={<Home/>} />
+      <Route
+  path="/details/:id"
+  element={<Details />}
+/>
 
     </Routes>
  
