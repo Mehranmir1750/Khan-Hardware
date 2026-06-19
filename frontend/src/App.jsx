@@ -24,6 +24,7 @@ function App() {
       <Route path='/Customer' element={<Customer/>} />
       <Route path='/Transactions' element={<Transactions/>} />
       <Route path='/add-transactions' element={<AddTransaction/>} />
+      <Route path='/logout' element={<Home/>} />
 
     </Routes>
  

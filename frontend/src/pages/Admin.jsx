@@ -11,6 +11,8 @@ export default function Admin(){
   todaySales: 0
 });
 
+const [loading, setLoading] = useState(true);
+
 const [recentTransactions, setRecentTransactions] = useState([]);
 
 
@@ -60,24 +62,24 @@ useEffect(() => {
         <>
         <AdminNavbar/>
 
-        <div className="dashboard_cards">
+        {/* <div className="dashboard_cards"> */}
 
-  <div className="card">
+  {/* <div className="card">
     <h4>Total Customers</h4>
     <p>{stats.totalCustomers}</p>
-  </div>
+  </div> */}
 
-  <div className="card">
+  {/* <div className="card">
     <h4>Total Due</h4>
     <p>₹{stats.totalDue}</p>
-  </div>
+  </div> */}
 
-  <div className="card">
+  {/* <div className="card">
     <h4>Today's Sales</h4>
     <p>₹{stats.todaySales}</p>
   </div>
 
-</div>
+</div> */}
 
 
 <div className="table_container">
