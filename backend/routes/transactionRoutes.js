@@ -13,6 +13,7 @@ router.post("/", async (req, res) => {
       type,
       item,
       quantity,
+      unit,
       price,
       amount
     } = req.body;
@@ -25,10 +26,11 @@ router.post("/", async (req, res) => {
         type,
         item,
         quantity,
+        unit,
         price,
         amount
       )
-      VALUES ($1,$2,$3,$4,$5,$6)
+      VALUES ($1,$2,$3,$4,$5,$6,$7)
       RETURNING *
       `,
       [
@@ -36,6 +38,7 @@ router.post("/", async (req, res) => {
         type,
         item,
         quantity,
+        unit,
         price,
         amount
       ]
@@ -70,6 +73,7 @@ router.get("/", async (req, res) => {
     t.type,
     t.item,
     t.quantity,
+    t.unit,
     t.price,
     t.amount,
     t.created_at

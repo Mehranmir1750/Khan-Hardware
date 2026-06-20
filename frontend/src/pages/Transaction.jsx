@@ -46,7 +46,8 @@ const getTransactions = async () =>{
               <th>Type</th>
               <th>Item</th>
               <th>Quantity</th>
-              <th>Price</th>
+              <th>Unit</th>
+              <th>Price/Unit</th>
               <th>Amount</th>
             </tr>
           </thead>
@@ -74,6 +75,7 @@ const getTransactions = async () =>{
 
                 <td>{transaction.item}</td>
                 <td>{transaction.quantity}</td>
+                <td className="unit_transaction">{transaction.unit}</td>
                 <td>{transaction.price === "-" ? "-" : `₹${transaction.price}`}</td>
                 <td>₹{transaction.amount}</td>
               </tr>

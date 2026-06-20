@@ -17,7 +17,7 @@ export default function AddTransaction() {
 
   const amount = (Number(quantity) || 0) * (Number(price) || 0);
   const navigate = useNavigate();
-
+const [unit, setUnit] = useState("kg");
 
   const getCustomers = async () => {
   try {
@@ -63,6 +63,7 @@ export default function AddTransaction() {
     type,
     item: type === "Payment" ? null : item,
     quantity: type === "Payment" ? null : quantity,
+    unit: type === "Payment" ? null : unit,
     price: type === "Payment" ? null : price,
     amount: type === "Payment" ? amountPaid : amount
   }
@@ -157,6 +158,20 @@ export default function AddTransaction() {
       value={quantity}
       onChange={(e) => setQuantity(e.target.value)}
     />
+
+    <label>Unit</label>
+
+<select
+  value={unit}
+  onChange={(e) => setUnit(e.target.value)}
+>
+  <option value="kg">Kg</option>
+  <option value="L">Liter</option>
+  <option value="ft">Feet</option>
+  <option value="m">Meter</option>
+  <option value="pcs">Pieces</option>
+  <option value="bag">Bag</option>
+</select>
 
     <label>Price</label>
     <input

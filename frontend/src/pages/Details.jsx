@@ -81,6 +81,7 @@ useEffect(() => {
               <th>Date</th>
               <th>Description</th>
               <th>Quantity</th>
+              <th>Unit</th>
               <th>Rate</th>
               <th>Amount</th>
             </tr>
@@ -102,6 +103,7 @@ useEffect(() => {
                   <>
                     <td>{transaction.item}</td>
                     <td>{transaction.quantity}</td>
+                    <td>{transaction.unit}</td>
                     <td>₹{transaction.price}</td>
                     <td>
                       ₹{transaction.quantity * transaction.price}
@@ -137,7 +139,7 @@ useEffect(() => {
             </tr> */}
 
             <tr>
-  <td colSpan="4">
+  <td colSpan="5">
     <strong>
       {balance >= 0
         ? "Outstanding Balance"
