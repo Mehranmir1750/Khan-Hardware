@@ -58,15 +58,27 @@ export default function Customer() {
 
                 <td>{customer.address}</td>
 
-                <td
+                {/* <td
                   className={
-                    customer.amount >= 0
+                    customer.balance >= 0
                       ? "positive_amount"
                       : "negative_amount"
                   }
                 >
-                  ₹0
-                </td>
+                  {customer.balance}
+                </td> */}
+                <td
+  className={
+    customer.balance >= 0
+      ? "positive_amount"
+      : "negative_amount"
+  }
+>
+  {customer.balance >= 0
+    ? `₹${customer.balance}`
+    : `Advance ₹${Math.abs(customer.balance)}`}
+</td>
+                
 
                 <td className="action_buttons">
 

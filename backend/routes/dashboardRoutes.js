@@ -3,60 +3,6 @@ const router = express.Router();
 
 const pool = require("../db");
 
-router.get("/", async (req, res) => {
-
-  try {
-
-    const customerCount = await pool.query(
-      "SELECT COUNT(*) FROM customers"
-    );
-
-    const totalDue = await pool.query(`
-      SELECT COALESCE(
-        SUM(
-          CASE
-            WHEN type = 'Purchase'
-            THEN amount
-            ELSE -amount
-          END
-        ),
-        0
-      ) AS total_due
-      FROM transaction
-    `);
-
-    const todaySales = await pool.query(`
-      SELECT COALESCE(
-        SUM(amount),
-        0
-      ) AS today_sales
-      FROM transaction
-      WHERE type = 'Purchase'
-      AND DATE(created_at) = CURRENT_DATE
-    `);
-
-    res.json({
-      totalCustomers:
-        customerCount.rows[0].count,
-
-      totalDue:
-        totalDue.rows[0].total_due,
-
-      todaySales:
-        todaySales.rows[0].today_sales
-    });
-
-  } catch (err) {
-
-    console.error(err);
-
-    res.status(500).json({
-      error: err.message
-    });
-
-  }
-
-});
 
 router.get("/recent", async (req, res) => {
 
@@ -69,6 +15,18 @@ router.get("/recent", async (req, res) => {
         t.type,
         t.amount,
         t.created_at
+
+        COALESCE(
+          SUM(
+            CASE
+            WHEN t.type = 'Purchase
+            THEN t.amount
+            ELSE -t.amount
+          END
+          ),
+        0
+          ) AS balance
+           
       FROM transaction t
       JOIN customers c
       ON t.customer_id = c.id
