@@ -126,6 +126,192 @@
   background: #eaf5ee;
   color: #1e7e45;
 }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ══════════════════════════════════
+   CONTAINER
+══════════════════════════════════ */
+.transaction_container {
+  margin-left: 200px;
+  margin-top: 62px;
+  min-height: calc(100vh - 62px);
+  background: #faf8f5;
+  padding: 32px 28px 48px;
+}
+
+/* ══════════════════════════════════
+   HEADING
+══════════════════════════════════ */
+.transaction_heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c2416;
+  margin-bottom: 20px;
+}
+
+/* ══════════════════════════════════
+   TABLE
+══════════════════════════════════ */
+.transaction_table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #e8e2d9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(180, 160, 120, 0.09);
+}
+
+/* Header */
+.transaction_table thead tr {
+  background: #faf6f0;
+  border-bottom: 1.5px solid #e2d9cc;
+}
+
+.transaction_table thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9e927e;
+  padding: 13px 18px;
+  text-align: left;
+}
+
+/* Rows */
+.transaction_table tbody tr {
+  border-bottom: 1px solid #f0ebe3;
+  transition: background 0.15s;
+}
+
+.transaction_table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.transaction_table tbody tr:hover {
+  background: #fdf9f5;
+}
+
+.transaction_table tbody td {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #3a3020;
+  padding: 13px 18px;
+  vertical-align: middle;
+}
+
+/* Date — monospace */
+.transaction_table tbody td:first-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: #9e927e;
+  white-space: nowrap;
+}
+
+/* Price & Amount columns — monospace */
+.transaction_table tbody td:nth-child(6),
+.transaction_table tbody td:nth-child(7) {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* Amount — right align */
+.transaction_table tbody td:last-child {
+  text-align: right;
+}
+
+.transaction_table thead th:last-child {
+  text-align: right;
+}
+
+/* ══════════════════════════════════
+   TYPE BADGES
+══════════════════════════════════ */
+.purchase,
+.payment {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.purchase {
+  background: #fdf0ee;
+  color: #c0392b;
+}
+
+.payment {
+  background: #eaf5ee;
+  color: #1e7e45;
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media (max-width: 768px) {
+  .transaction_container {
+    margin-left: 0;
+    padding: 80px 14px 32px;
+    overflow-x: auto;
+  }
+
+  .transaction_table {
+    min-width: 620px;
+  }
+}
+
+/* ══════════════════════════════════
+   ACTION BUTTONS
+══════════════════════════════════ */
+.edit-btn-tran,
+.delete-btn-tran {
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  border: 1.5px solid transparent;
+}
+
+.edit-btn-tran {
+  background: transparent;
+  border-color: #e2d9cc;
+  color: #7a6e62;
+  margin-right: 6px;
+}
+
+.edit-btn-tran:hover {
+  background: #f5ede0;
+  border-color: #b5936a;
+  color: #2c2416;
+}
+
+.delete-btn-tran {
+  background: transparent;
+  border-color: #f0c8c8;
+  color: #c0392b;
+}
+
+.delete-btn-tran:hover {
+  background: #c0392b;
+  border-color: #c0392b;
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(192, 57, 43, 0.18);
+}
+
+/* Unit badge */
+.unit_transaction {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: #9e927e;
+}
 
 /* ══════════════════════════════════
    RESPONSIVE

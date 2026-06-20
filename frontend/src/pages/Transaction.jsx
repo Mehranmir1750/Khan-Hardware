@@ -27,6 +27,17 @@ const getTransactions = async () =>{
   getTransactions();
 }, []);
 
+
+const deleteTransaction = async(id)=>{
+  try{
+    await axios.delete(`http://localhost:5000/api/transaction/${id}`);
+
+    getTransactions()
+  } catch (err) {
+    console.error(err);
+  }
+};
+
   return (
     <>
       <AdminNavbar />
@@ -49,6 +60,8 @@ const getTransactions = async () =>{
               <th>Unit</th>
               <th>Price/Unit</th>
               <th>Amount</th>
+              <th>Actions</th>
+            
             </tr>
           </thead>
 
@@ -78,6 +91,11 @@ const getTransactions = async () =>{
                 <td className="unit_transaction">{transaction.unit}</td>
                 <td>{transaction.price === "-" ? "-" : `₹${transaction.price}`}</td>
                 <td>₹{transaction.amount}</td>
+                <td><button className="edit-btn-tran">Edit</button>
+                <button 
+                className="delete-btn-tran"
+                onClick={()=>deleteTransaction(transaction.id)}>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>
