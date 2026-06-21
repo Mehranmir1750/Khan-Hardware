@@ -10,6 +10,7 @@ import AddCustomer from './pages/AddCustomer';
 import Customer from './pages/Customer';
 import Transactions from './pages/Transaction';
 import AddTransaction from './pages/AddTransaction';
+import Edit from './pages/Edit';
 
 function App() {
 
@@ -26,10 +27,8 @@ function App() {
       <Route path='/Transactions' element={<Transactions/>} />
       <Route path='/add-transactions' element={<AddTransaction/>} />
       <Route path='/logout' element={<Home/>} />
-      <Route
-  path="/details/:id"
-  element={<Details />}
-/>
+      <Route path="/details/:id" element={<Details />}/>
+      <Route path="/edit-transaction/:id" element={<Edit />}/>
 
     </Routes>
  

@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ══════════════════════════════════
+   CONTAINER
+══════════════════════════════════ */
+.edit-container {
+  margin-left: 220px;
+  margin-top: 60px;
+  min-height: calc(100vh - 60px);
+  background: #faf8f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 16px;
+}
+
+/* ══════════════════════════════════
+   HEADING
+══════════════════════════════════ */
+.edit-container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c2416;
+  margin-bottom: 28px;
+  text-align: center;
+  width: 100%;
+  max-width: 460px;
+}
+
+/* ══════════════════════════════════
+   FORM
+══════════════════════════════════ */
+.edit-container form {
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  border: 1px solid #e8e2d9;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(180, 160, 120, 0.10);
+  padding: 28px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.edit-container form div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ══════════════════════════════════
+   LABELS
+══════════════════════════════════ */
+.edit-container label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9e927e;
+}
+
+/* ══════════════════════════════════
+   INPUTS
+══════════════════════════════════ */
+.edit-container input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #e2d9cc;
+  border-radius: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.92rem;
+  color: #2c2416;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.edit-container input:focus {
+  border-color: #b5936a;
+  box-shadow: 0 0 0 3px rgba(181, 147, 106, 0.12);
+}
+
+/* Read-only amount */
+.edit-container input[readonly] {
+  background: #faf6f0;
+  color: #b5936a;
+  border-color: #e8e2d9;
+  cursor: default;
+}
+
+.edit-container input[readonly]:focus {
+  box-shadow: none;
+  border-color: #e8e2d9;
+}
+
+/* ══════════════════════════════════
+   SELECT
+══════════════════════════════════ */
+.edit-container select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #e2d9cc;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  color: #2c2416;
+  background: #ffffff
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239e927e' d='M6 8L1 3h10z'/%3E%3C/svg%3E")
+    no-repeat right 14px center;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.edit-container select:focus {
+  border-color: #b5936a;
+  box-shadow: 0 0 0 3px rgba(181, 147, 106, 0.12);
+}
+
+/* ══════════════════════════════════
+   SUBMIT BUTTON
+══════════════════════════════════ */
+.edit-container button[type="submit"] {
+  width: 100%;
+  padding: 13px;
+  margin-top: 4px;
+  background: #b5936a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.edit-container button[type="submit"]:hover {
+  background: #9a7855;
+  box-shadow: 0 4px 14px rgba(154, 120, 85, 0.22);
+}
+
+.edit-container button[type="submit"]:active {
+  background: #7a6040;
+}
+
+/* ══════════════════════════════════
+   MOBILE
+══════════════════════════════════ */
+@media (max-width: 768px) {
+  .edit-container {
+    margin-left: 0;
+    margin-top: 0;
+    padding: 24px 16px 40px;
+  }
+
+  .edit-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .edit-container form {
+    padding: 22px 18px 26px;
+  }
+}

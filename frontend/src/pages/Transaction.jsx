@@ -2,8 +2,11 @@ import axios from "axios";
 import AdminNavbar from "../components/AdminNavbar";
 import "../styles/Transactions.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Transactions() {
+
+  const navigate = useNavigate();
 
 
   const [transactions, setTransactions] = useState([]);
@@ -91,7 +94,14 @@ const deleteTransaction = async(id)=>{
                 <td className="unit_transaction">{transaction.unit}</td>
                 <td>{transaction.price === "-" ? "-" : `₹${transaction.price}`}</td>
                 <td>₹{transaction.amount}</td>
-                <td><button className="edit-btn-tran">Edit</button>
+                <td><button
+  className="edit-btn-tran"
+  onClick={() =>
+    navigate(`/edit-transaction/${transaction.id}`)
+  }
+>
+  Edit
+</button>
                 <button 
                 className="delete-btn-tran"
                 onClick={()=>deleteTransaction(transaction.id)}>Delete</button>

@@ -150,4 +150,83 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+
+router.get("/:id", async (req, res) => {
+  try {
+
+    const { id } = req.params;
+
+    const result = await pool.query(
+      `
+      SELECT *
+      FROM transaction
+      WHERE id = $1
+      `,
+      [id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        message: "Transaction not found"
+      });
+    }
+
+    res.json(result.rows[0]);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      error: "Server Error"
+    });
+  }
+});
+
+
+router.put("/:id", async (req, res) => {
+  try {
+
+    const { id } = req.params;
+
+    const {
+      item,
+      quantity,
+      unit,
+      price,
+      amount
+    } = req.body;
+
+    const result = await pool.query(
+      `
+      UPDATE transaction
+      SET
+        item = $1,
+        quantity = $2,
+        unit = $3,
+        price = $4,
+        amount = $5
+      WHERE id = $6
+      RETURNING *
+      `,
+      [item, quantity,unit, price, amount, id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        message: "Transaction not found"
+      });
+    }
+
+    res.json({
+      message: "Transaction updated successfully",
+      transaction: result.rows[0]
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      error: "Server Error"
+    });
+  }
+});
+
 module.exports = router;
