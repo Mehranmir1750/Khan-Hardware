@@ -26,7 +26,12 @@ export default function Home() {
     try {
 
   const response = await axios.get(
-    `http://localhost:5000/api/customers/search/${search}`
+    `http://localhost:5000/api/customers/search/${search}`,
+    {
+        headers: {
+  Authorization: `Bearer ${localStorage.getItem("token")}`
+}
+      }
   );
 
   console.log(response.data);

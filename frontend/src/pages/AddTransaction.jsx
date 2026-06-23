@@ -66,6 +66,11 @@ const [unit, setUnit] = useState("kg");
     unit: type === "Payment" ? null : unit,
     price: type === "Payment" ? null : price,
     amount: type === "Payment" ? amountPaid : amount
+  },
+  {
+    headers: {
+  Authorization: `Bearer ${localStorage.getItem("token")}`
+}
   }
 );
       alert("Transaction added")

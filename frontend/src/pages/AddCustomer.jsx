@@ -23,6 +23,11 @@ const addCustomer = async () =>{
                 name, 
                 phone,
                 address
+            },
+            {
+                headers: {
+  Authorization: `Bearer ${localStorage.getItem("token")}`
+}
             }
         );
         alert("Customer Added Sucessfully");

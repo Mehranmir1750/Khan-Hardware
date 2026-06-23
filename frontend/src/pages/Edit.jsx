@@ -57,7 +57,12 @@ export default function Edit() {
         `http://localhost:5000/api/transaction/${id}`,
         type === "Purchase"
           ? { item, quantity, unit, price, amount }
-          : { amount }
+          : { amount },
+          {
+        headers: {
+  Authorization: `Bearer ${localStorage.getItem("token")}`
+}
+      }
       );
 
       alert("Transaction Updated Successfully");

@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const pool = require("../db");
+const auth = require("../middleware/auth");
 
 
-router.post("/", async (req, res) => {
+router.post("/", auth,async (req, res) => {
 
   try {
 
@@ -61,7 +62,7 @@ router.post("/", async (req, res) => {
 });
 
 
-router.get("/", async (req, res) => {
+router.get("/",auth, async (req, res) => {
 
   try {
 
@@ -131,7 +132,7 @@ router.get("/customer/:id", async (req, res) => {
 });
 
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id",auth, async (req, res) => {
   try {
     await pool.query(
       "DELETE FROM transaction WHERE id = $1",
@@ -151,7 +152,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 
-router.get("/:id", async (req, res) => {
+router.get("/:id",auth, async (req, res) => {
   try {
 
     const { id } = req.params;
@@ -182,7 +183,7 @@ router.get("/:id", async (req, res) => {
 });
 
 
-router.put("/:id", async (req, res) => {
+router.put("/:id",auth, async (req, res) => {
   try {
 
     const { id } = req.params;

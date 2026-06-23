@@ -20,7 +20,12 @@ const getTransactions = async () => {
   try {
 
     const response = await axios.get(
-      `http://localhost:5000/api/transaction/customer/${id}`
+      `http://localhost:5000/api/transaction/customer/${id}`,
+      {
+        headers: {
+  Authorization: `Bearer ${localStorage.getItem("token")}`
+}
+      }
     );
 
     setTransactions(response.data);

@@ -2,31 +2,49 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Login.css"
 import { FaArrowLeft } from "react-icons/fa";
 import { useState } from "react";
+ import axios from "axios";
 
 export default function Login(){
+
 
     const navigate = useNavigate();
 
 
     const  [username, setUsername] = useState("");
     const  [password, setPassword] = useState("");
+
+
+   
+
+const adminCheck = async () => {
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/api/auth/login",
+      { username, password },
+    );
+    localStorage.setItem("token", response.data.token);
+    navigate("/admin-dashboard");
+  } catch (err) {
+    alert("Enter correct details");
+  }
+};
    
 
 
-    const adminCheck = () => {
+//     const adminCheck = () => {
 
-        if( 
-            (username === "admin@gmail.com" || username === "admin") &&
-  password === "1234567890"
+//         if( 
+//             (username === "admin@gmail.com" || username === "admin") &&
+//   password === "1234567890"
 
-        ){
-            navigate('/admin-dashboard')
-        }
-        else{
-            alert('enter correct details')
-        }
+//         ){
+//             navigate('/admin-dashboard')
+//         }
+//         else{
+//             alert('enter correct details')
+//         }
 
-    }
+//     }
 
 
 

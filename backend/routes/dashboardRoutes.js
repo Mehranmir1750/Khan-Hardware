@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const pool = require("../db");
-
+const auth = require("../middleware/auth");
 
 // router.get("/recent", async (req, res) => {
 
@@ -49,7 +49,7 @@ const pool = require("../db");
 // });
 
 
-router.get("/recent", async (req, res) => {
+router.get("/recent",auth, async (req, res) => {
 
   try {
 

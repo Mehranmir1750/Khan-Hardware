@@ -21,7 +21,12 @@ const getRecentTransactions = async () => {
   try {
 
     const response = await axios.get(
-      "http://localhost:5000/api/dashboard/recent"
+      "http://localhost:5000/api/dashboard/recent",
+      {
+        headers: {
+  Authorization: `Bearer ${localStorage.getItem("token")}`
+}
+      }
     );
 
     setRecentTransactions(response.data);

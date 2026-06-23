@@ -15,7 +15,12 @@ const getTransactions = async () =>{
   try{
 
     const response = await axios.get(
-      "http://localhost:5000/api/transaction"
+      "http://localhost:5000/api/transaction",
+      {
+        headers: {
+  Authorization: `Bearer ${localStorage.getItem("token")}`
+}
+      }
     )
     setTransactions(response.data);
 
