@@ -31,23 +31,6 @@ const adminCheck = async () => {
    
 
 
-//     const adminCheck = () => {
-
-//         if( 
-//             (username === "admin@gmail.com" || username === "admin") &&
-//   password === "1234567890"
-
-//         ){
-//             navigate('/admin-dashboard')
-//         }
-//         else{
-//             alert('enter correct details')
-//         }
-
-//     }
-
-
-
     return(
         <>
 
