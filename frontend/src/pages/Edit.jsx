@@ -54,7 +54,7 @@ export default function Edit() {
     try {
 
       await axios.put(
-        `http://localhost:5000/api/transaction/${id}`,
+        `${import.meta.env.VITE_API_URL}/transaction/${id}`,
         type === "Purchase"
           ? { item, quantity, unit, price, amount }
           : { amount },
