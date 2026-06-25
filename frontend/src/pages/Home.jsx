@@ -26,7 +26,7 @@ export default function Home() {
     try {
 
   const response = await axios.get(
-    `http://localhost:5000/api/customers/search/${search}`,
+    `${import.meta.env.VITE_API_URL}/customers/search/${search}`,
     {
         headers: {
   Authorization: `Bearer ${localStorage.getItem("token")}`
