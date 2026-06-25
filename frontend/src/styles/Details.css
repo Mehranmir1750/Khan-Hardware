@@ -112,6 +112,14 @@
   text-align: right;
 }
 
+  .detail_component {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 680px;
+  margin: 44px auto 48px;
+  padding: 0 16px;
+}
+
 /* ── Mobile — horizontal scroll ── */
 @media (max-width: 560px) {
   .detail_component {
@@ -139,11 +147,5 @@
   .details_table tbody td {
     padding: 11px 12px;
   }
-  .detail_component {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 680px;
-  margin: 44px auto 48px;
-  padding: 0 16px;
-}
+
 }
