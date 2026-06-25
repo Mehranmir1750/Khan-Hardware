@@ -21,7 +21,7 @@ const getRecentTransactions = async () => {
   try {
 
     const response = await axios.get(
-      "http://localhost:5000/api/dashboard/recent",
+      `${import.meta.env.VITE_API_URL}/dashboard/recent`,
       {
         headers: {
   Authorization: `Bearer ${localStorage.getItem("token")}`
