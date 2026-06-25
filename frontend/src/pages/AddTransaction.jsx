@@ -57,7 +57,7 @@ const [unit, setUnit] = useState("kg");
       // );
 
       await axios.post(
-  "http://localhost:5000/api/transaction",
+  `${import.meta.env.VITE_API_URL}/transaction`,
   {
     customer,
     type,
