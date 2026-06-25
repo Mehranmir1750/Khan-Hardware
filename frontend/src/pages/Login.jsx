@@ -19,7 +19,7 @@ export default function Login(){
 const adminCheck = async () => {
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/login",
+      `${import.meta.env.VITE_API_URL}/auth/login`,
       { username, password },
     );
     localStorage.setItem("token", response.data.token);
