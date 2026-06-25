@@ -115,3 +115,23 @@
   .balance-box p { font-size: 1.65rem; }
   .balance-card > h2 { font-size: 1.2rem; }
 }
+
+
+
+@media (max-width: 480px) {
+  .balance-card {
+    margin: 16px 0 0;       
+    padding: 24px 16px;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+  .balance-box p { font-size: 1.65rem; }
+  .balance-card > h2 { font-size: 1.2rem; }
+}
+
+
+.balance-card {
+  box-sizing: border-box;  
+  display: flex;
+
+}
