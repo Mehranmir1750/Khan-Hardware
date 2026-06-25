@@ -12,7 +12,7 @@ export default function Customer() {
     try{
 
       const response = await axios.get(
-        "http://localhost:5000/api/customers",
+        `${import.meta.env.VITE_API_URL}/customers`,
          {
     headers: {
       Authorization: localStorage.getItem("token")
