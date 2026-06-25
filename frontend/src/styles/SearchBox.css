@@ -94,3 +94,23 @@
 
   .user_home_heading { font-size: 1.3rem; }
 }
+
+
+@media (max-width: 480px) {
+  .search-card {
+    margin: 28px 0 0;        
+    padding: 26px 16px;
+    border-radius: 0;        
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .user_home_heading { font-size: 1.3rem; }
+}
+
+.search-card {
+  box-sizing: border-box;   
+  width: 100%;
+  max-width: 480px;
+
+}
