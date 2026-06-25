@@ -15,7 +15,7 @@ const getTransactions = async () =>{
   try{
 
     const response = await axios.get(
-      "http://localhost:5000/api/transaction",
+      `${import.meta.env.VITE_API_URL}/api/transaction`,
       {
         headers: {
   Authorization: `Bearer ${localStorage.getItem("token")}`
