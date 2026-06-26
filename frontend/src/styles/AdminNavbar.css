@@ -19,7 +19,6 @@
   box-shadow: 1px 0 0 #ece7df, 4px 0 20px rgba(180,160,120,0.06);
 }
 
-/* ── Gold accent strip at top ── */
 .left_navbar::before {
   content: '';
   display: block;
@@ -28,7 +27,6 @@
   flex-shrink: 0;
 }
 
-/* ── Logo block ── */
 .adminlogo {
   font-family: 'Playfair Display', serif;
   font-size: 0.95rem;
@@ -46,7 +44,6 @@
   flex-shrink: 0;
 }
 
-/* ── Shop name under logo ── */
 .left_navbar .nav_shop_name {
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
@@ -57,7 +54,6 @@
   margin-bottom: 12px;
 }
 
-/* ── Section label ── */
 .nav_section_label {
   font-family: 'Inter', sans-serif;
   font-size: 0.63rem;
@@ -68,7 +64,6 @@
   text-transform: uppercase;
 }
 
-/* ── Nav links ── */
 .left_navbar a {
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
@@ -98,7 +93,6 @@
   font-weight: 600;
 }
 
-/* ── Logout ── */
 .left_navbar .logout {
   margin-top: auto;
   color: #c0392b;
@@ -115,7 +109,6 @@
   color: #962d22;
   border-radius: 0;
 }
-
 
 /* ══════════════════════════════════════════════
    TOP BAR
@@ -135,7 +128,6 @@
   z-index: 199;
 }
 
-/* Gold accent strip */
 .top_navbar::after {
   content: '';
   position: absolute;
@@ -155,7 +147,6 @@
   letter-spacing: 0.01em;
 }
 
-/* ── Search with icon ── */
 .admin_search {
   width: 260px;
   padding: 8px 16px 8px 38px;
@@ -182,7 +173,6 @@
   font-size: 0.82rem;
 }
 
-
 /* ══════════════════════════════════════════════
    PAGE CONTENT WRAPPER
 ══════════════════════════════════════════════ */
@@ -194,48 +184,105 @@
   background: #faf8f5;
 }
 
-
 /* ══════════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════════ */
 @media (max-width: 768px) {
+
+  /* Sidebar becomes a fixed bottom tab bar */
   .left_navbar {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: auto;
-    position: relative;
     flex-direction: row;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     border-right: none;
-    border-bottom: 1px solid #ece7df;
+    border-top: 1px solid #ece7df;
+    box-shadow: 0 -2px 12px rgba(180,160,120,0.10);
+    padding: 0;
+    z-index: 200;
   }
 
-  .left_navbar::before { width: 100%; }
-  .nav_section_label { display: none; }
-  .adminlogo { margin: 10px 10px 10px 14px; }
+  /* Hide the gold top strip */
+  .left_navbar::before { display: none; }
 
+  /* Hide logo and shop name on mobile */
+  .adminlogo,
+  .left_navbar .nav_shop_name,
+  .nav_section_label { display: none; }
+
+  /* Nav links become icon+label tab buttons */
   .left_navbar a {
-    padding: 8px 12px;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 10px 4px;
+    font-size: 0.65rem;
     border-left: none;
-    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
     border-radius: 0;
     margin: 0;
-    font-size: 0.8rem;
+    min-width: 0;
+    text-align: center;
   }
 
   .left_navbar a:hover,
   .left_navbar a.active {
     border-left-color: transparent;
-    border-bottom-color: #b5936a;
+    border-top-color: #b5936a;
     background: #fdf6ee;
+    border-radius: 0;
+    color: #b5936a;
+  }
+
+  /* Logout tab */
+  .left_navbar .logout {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 10px 4px;
+    font-size: 0.65rem;
+    border-top: 2px solid transparent;
+    border-left: none;
+    margin: 0;
+    text-align: center;
+  }
+
+  .left_navbar .logout:hover {
+    border-top-color: #c0392b;
+    border-left-color: transparent;
     border-radius: 0;
   }
 
-  .left_navbar .logout {
-    border-top: none;
-    margin: 0;
-    padding: 8px 12px;
+  /* Top navbar spans full width */
+  .top_navbar {
+    left: 0;
+    position: fixed;
+    top: 0;
+    padding: 0 16px;
   }
 
-  .top_navbar { left: 0; position: relative; }
-  .admin_page_content { margin-left: 0; margin-top: 0; }
+  /* Search shrinks on mobile */
+  .admin_search {
+    width: 140px;
+    font-size: 0.8rem;
+  }
+
+  /* Content: top margin for topbar, bottom margin for tab bar */
+  .admin_page_content {
+    margin-left: 0;
+    margin-top: 60px;
+    margin-bottom: 64px;   /* clears the bottom tab bar */
+    padding: 20px 16px;
+    box-sizing: border-box;
+  }
 }
