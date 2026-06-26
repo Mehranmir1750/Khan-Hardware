@@ -24,7 +24,12 @@ export default function Edit() {
     try {
 
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/transaction/${id}`
+        `${import.meta.env.VITE_API_URL}/transaction/${id}`,
+         {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`  // ← add this
+        }
+      }
       );
 
       const t = response.data;
