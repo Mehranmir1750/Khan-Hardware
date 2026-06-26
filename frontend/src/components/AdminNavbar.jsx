@@ -21,11 +21,11 @@ export default function AdminNavbar(){
         Khan Hardware Admin
     </h3>
 
-    <input
+    {/* <input
         className="admin_search"
         type="text"
         placeholder="Search number or name"
-    />
+    /> */}
 </div>
 
 

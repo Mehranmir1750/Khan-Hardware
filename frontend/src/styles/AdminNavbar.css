@@ -9,105 +9,109 @@
   left: 0;
   width: 220px;
   height: 100vh;
-  background: #ffffff;
-  border-right: 1px solid #ece7df;
+  background: #1e1a14;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   padding: 0;
   z-index: 200;
-  box-shadow: 1px 0 0 #ece7df, 4px 0 20px rgba(180,160,120,0.06);
+  box-shadow: 2px 0 16px rgba(0,0,0,0.18);
 }
 
+/* ── Gold top accent ── */
 .left_navbar::before {
   content: '';
   display: block;
   height: 3px;
-  background: #b5936a;
+  background: linear-gradient(90deg, #b5936a, #d4b896, #b5936a);
   flex-shrink: 0;
 }
 
+/* ── Logo block ── */
 .adminlogo {
   font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #1e1a14;
   background: #b5936a;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  letter-spacing: 0.06em;
-  margin: 22px 0 8px 20px;
+  letter-spacing: 0.04em;
+  margin: 24px auto 6px 18px;
   flex-shrink: 0;
 }
 
+/* ── Shop name ── */
 .left_navbar .nav_shop_name {
   font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #2c2416;
-  padding: 0 20px 20px;
-  border-bottom: 1px solid #ece7df;
-  margin-bottom: 12px;
-}
-
-.nav_section_label {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.63rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: #c5bbae;
-  padding: 4px 20px 8px;
+  color: #9e8e76;
+  padding: 0 18px 18px;
+  border-bottom: 1px solid #2e2820;
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
+/* ── Section label ── */
+.nav_section_label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #4a4030;
+  padding: 6px 18px 6px;
+  text-transform: uppercase;
+}
+
+/* ── Nav links ── */
 .left_navbar a {
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 500;
-  color: #7a6e62;
+  color: #9e8e76;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 11px 18px;
   display: flex;
   align-items: center;
   gap: 10px;
   border-left: 3px solid transparent;
-  margin: 0 8px;
-  border-radius: 0 6px 6px 0;
-  transition: color 0.18s, background 0.18s, border-color 0.18s;
+  margin: 1px 0;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
 }
 
 .left_navbar a:hover {
-  color: #2c2416;
-  background: #fdf6ee;
-  border-left-color: #d4b896;
+  color: #e8d5bb;
+  background: #2a2318;
+  border-left-color: #6b5a3e;
 }
 
 .left_navbar a.active {
   color: #b5936a;
-  background: #fdf3e5;
+  background: #2a2318;
   border-left-color: #b5936a;
   font-weight: 600;
 }
 
+/* ── Logout ── */
 .left_navbar .logout {
-  margin-top: auto;
-  color: #c0392b;
-  border-left-color: transparent;
-  border-top: 1px solid #ece7df;
-  border-radius: 0;
   margin: auto 0 0 0;
-  padding: 14px 20px;
+  color: #8a4a42;
+  border-top: 1px solid #2e2820;
+  border-left: 3px solid transparent;
+  padding: 14px 18px;
+  font-size: 0.84rem;
 }
 
 .left_navbar .logout:hover {
-  background: #fdf0ee;
+  background: #251815;
   border-left-color: #c0392b;
-  color: #962d22;
-  border-radius: 0;
+  color: #e05a4e;
 }
 
 /* ══════════════════════════════════════════════
@@ -118,12 +122,11 @@
   top: 0;
   left: 220px;
   right: 0;
-  height: 60px;
+  height: 58px;
   background: #ffffff;
   border-bottom: 1px solid #ece7df;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 28px;
   z-index: 199;
 }
@@ -131,12 +134,12 @@
 .top_navbar::after {
   content: '';
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: #b5936a;
-  opacity: 0.35;
+  height: 2px;
+  background: linear-gradient(90deg, #b5936a 0%, transparent 60%);
+  opacity: 0.5;
 }
 
 .admin_heading {
@@ -147,49 +150,23 @@
   letter-spacing: 0.01em;
 }
 
-.admin_search {
-  width: 260px;
-  padding: 8px 16px 8px 38px;
-  border: 1px solid #e2d9cc;
-  border-radius: 20px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  color: #2c2416;
-  background: #faf8f5
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23b5aba0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E")
-    no-repeat 13px center;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
-}
-
-.admin_search:focus {
-  border-color: #b5936a;
-  background-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(181, 147, 106, 0.12);
-}
-
-.admin_search::placeholder {
-  color: #c5bbae;
-  font-size: 0.82rem;
-}
-
 /* ══════════════════════════════════════════════
    PAGE CONTENT WRAPPER
 ══════════════════════════════════════════════ */
 .admin_page_content {
   margin-left: 220px;
-  margin-top: 60px;
+  margin-top: 58px;
   padding: 32px 28px;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 58px);
   background: #faf8f5;
+  box-sizing: border-box;
 }
 
 /* ══════════════════════════════════════════════
-   RESPONSIVE
+   MOBILE — bottom tab bar
 ══════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
-  /* Sidebar becomes a fixed bottom tab bar */
   .left_navbar {
     position: fixed;
     top: auto;
@@ -197,92 +174,86 @@
     left: 0;
     right: 0;
     width: 100%;
-    height: auto;
+    height: 60px;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
     border-right: none;
-    border-top: 1px solid #ece7df;
-    box-shadow: 0 -2px 12px rgba(180,160,120,0.10);
+    border-top: 1px solid #2e2820;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
     padding: 0;
-    z-index: 200;
+    overflow: hidden;
   }
 
-  /* Hide the gold top strip */
   .left_navbar::before { display: none; }
 
-  /* Hide logo and shop name on mobile */
   .adminlogo,
   .left_navbar .nav_shop_name,
   .nav_section_label { display: none; }
 
-  /* Nav links become icon+label tab buttons */
+  /* Each link = one tab */
   .left_navbar a {
     flex: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
-    padding: 10px 4px;
-    font-size: 0.65rem;
+    gap: 2px;
+    padding: 6px 2px;
+    font-size: 0.6rem;
+    font-weight: 500;
     border-left: none;
     border-top: 2px solid transparent;
-    border-radius: 0;
+    border-bottom: none;
     margin: 0;
-    min-width: 0;
     text-align: center;
+    color: #6b5a3e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .left_navbar a:hover,
   .left_navbar a.active {
     border-left-color: transparent;
     border-top-color: #b5936a;
-    background: #fdf6ee;
-    border-radius: 0;
+    background: #2a2318;
     color: #b5936a;
   }
 
-  /* Logout tab */
   .left_navbar .logout {
     flex: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
-    padding: 10px 4px;
-    font-size: 0.65rem;
+    gap: 2px;
+    padding: 6px 2px;
+    font-size: 0.6rem;
     border-top: 2px solid transparent;
     border-left: none;
     margin: 0;
     text-align: center;
+    color: #8a4a42;
+    white-space: nowrap;
   }
 
   .left_navbar .logout:hover {
     border-top-color: #c0392b;
     border-left-color: transparent;
-    border-radius: 0;
+    background: #251815;
+    color: #e05a4e;
   }
 
-  /* Top navbar spans full width */
   .top_navbar {
     left: 0;
     position: fixed;
     top: 0;
     padding: 0 16px;
+    height: 52px;
   }
 
-  /* Search shrinks on mobile */
-  .admin_search {
-    width: 140px;
-    font-size: 0.8rem;
-  }
-
-  /* Content: top margin for topbar, bottom margin for tab bar */
   .admin_page_content {
     margin-left: 0;
-    margin-top: 60px;
-    margin-bottom: 64px;   /* clears the bottom tab bar */
-    padding: 20px 16px;
-    box-sizing: border-box;
+    margin-top: 52px;
+    margin-bottom: 60px;
+    padding: 16px 14px;
   }
 }
