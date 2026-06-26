@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500;600&display=swap');
 
 /* ══════════════════════════════════════════════
-   LEFT SIDEBAR
+   LEFT SIDEBAR — Desktop
 ══════════════════════════════════════════════ */
 .left_navbar {
   position: fixed;
@@ -9,109 +9,105 @@
   left: 0;
   width: 220px;
   height: 100vh;
-  background: #1e1a14;
+  background: #ffffff;
+  border-right: 1px solid #ece7df;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   padding: 0;
   z-index: 200;
-  box-shadow: 2px 0 16px rgba(0,0,0,0.18);
+  box-shadow: 2px 0 12px rgba(180,160,120,0.08);
 }
 
-/* ── Gold top accent ── */
 .left_navbar::before {
   content: '';
   display: block;
   height: 3px;
-  background: linear-gradient(90deg, #b5936a, #d4b896, #b5936a);
+  background: #b5936a;
   flex-shrink: 0;
 }
 
-/* ── Logo block ── */
 .adminlogo {
   font-family: 'Playfair Display', serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #1e1a14;
+  color: #ffffff;
   background: #b5936a;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  letter-spacing: 0.04em;
-  margin: 24px auto 6px 18px;
+  margin: 22px 0 8px 20px;
   flex-shrink: 0;
 }
 
-/* ── Shop name ── */
 .left_navbar .nav_shop_name {
   font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: #9e8e76;
-  padding: 0 18px 18px;
-  border-bottom: 1px solid #2e2820;
-  margin-bottom: 16px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  color: #2c2416;
+  padding: 0 20px 20px;
+  border-bottom: 1px solid #ece7df;
+  margin-bottom: 12px;
 }
 
-/* ── Section label ── */
 .nav_section_label {
   font-family: 'Inter', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.63rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  color: #4a4030;
-  padding: 6px 18px 6px;
+  letter-spacing: 0.12em;
+  color: #c5bbae;
+  padding: 4px 20px 8px;
   text-transform: uppercase;
 }
 
-/* ── Nav links ── */
 .left_navbar a {
   font-family: 'Inter', sans-serif;
-  font-size: 0.84rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: #9e8e76;
+  color: #7a6e62;
   text-decoration: none;
-  padding: 11px 18px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   gap: 10px;
   border-left: 3px solid transparent;
-  margin: 1px 0;
+  margin: 0 8px;
+  border-radius: 0 6px 6px 0;
   transition: color 0.15s, background 0.15s, border-color 0.15s;
 }
 
 .left_navbar a:hover {
-  color: #e8d5bb;
-  background: #2a2318;
-  border-left-color: #6b5a3e;
+  color: #2c2416;
+  background: #fdf6ee;
+  border-left-color: #d4b896;
 }
 
 .left_navbar a.active {
   color: #b5936a;
-  background: #2a2318;
+  background: #fdf3e5;
   border-left-color: #b5936a;
   font-weight: 600;
 }
 
-/* ── Logout ── */
 .left_navbar .logout {
   margin: auto 0 0 0;
-  color: #8a4a42;
-  border-top: 1px solid #2e2820;
+  color: #c0392b;
+  border-top: 1px solid #ece7df;
   border-left: 3px solid transparent;
-  padding: 14px 18px;
-  font-size: 0.84rem;
+  border-radius: 0;
+  padding: 14px 20px;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 0;
 }
 
 .left_navbar .logout:hover {
-  background: #251815;
+  background: #fdf0ee;
   border-left-color: #c0392b;
-  color: #e05a4e;
+  color: #962d22;
 }
 
 /* ══════════════════════════════════════════════
@@ -134,12 +130,12 @@
 .top_navbar::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #b5936a 0%, transparent 60%);
-  opacity: 0.5;
+  height: 3px;
+  background: #b5936a;
+  opacity: 0.3;
 }
 
 .admin_heading {
@@ -147,11 +143,10 @@
   font-size: 1.05rem;
   font-weight: 600;
   color: #2c2416;
-  letter-spacing: 0.01em;
 }
 
 /* ══════════════════════════════════════════════
-   PAGE CONTENT WRAPPER
+   PAGE CONTENT
 ══════════════════════════════════════════════ */
 .admin_page_content {
   margin-left: 220px;
@@ -163,25 +158,50 @@
 }
 
 /* ══════════════════════════════════════════════
-   MOBILE — bottom tab bar
+   MOBILE
 ══════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
+  /* Sidebar becomes a LEFT drawer-style vertical strip 
+     replaced by a top horizontal scrollable nav */
   .left_navbar {
     position: fixed;
-    top: auto;
+    top: 52px;           /* sits below topbar */
     bottom: 0;
+    left: -220px;        /* hidden off screen */
+    width: 220px;
+    height: auto;
+    flex-direction: column;
+    border-right: 1px solid #ece7df;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.12);
+    transition: left 0.25s ease;
+  }
+
+  /* ── Mobile: horizontal scrollable top nav instead ── */
+  .left_navbar {
+    position: fixed;
+    top: 52px;
     left: 0;
     right: 0;
+    bottom: auto;
     width: 100%;
-    height: 60px;
+    height: auto;
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
     border-right: none;
-    border-top: 1px solid #2e2820;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
-    padding: 0;
-    overflow: hidden;
+    border-bottom: 1px solid #ece7df;
+    box-shadow: 0 2px 8px rgba(180,160,120,0.10);
+    padding: 0 8px;
+    gap: 0;
+    /* Hide scrollbar but keep scrollable */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .left_navbar::-webkit-scrollbar {
+    display: none;
   }
 
   .left_navbar::before { display: none; }
@@ -190,70 +210,64 @@
   .left_navbar .nav_shop_name,
   .nav_section_label { display: none; }
 
-  /* Each link = one tab */
+  /* Each link = compact pill */
   .left_navbar a {
-    flex: 1;
-    flex-direction: column;
+    flex: 0 0 auto;           /* don't shrink — let it scroll */
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 2px;
-    padding: 6px 2px;
-    font-size: 0.6rem;
+    padding: 10px 14px;
+    font-size: 0.8rem;
     font-weight: 500;
     border-left: none;
-    border-top: 2px solid transparent;
-    border-bottom: none;
+    border-bottom: 2.5px solid transparent;
+    border-radius: 0;
     margin: 0;
-    text-align: center;
-    color: #6b5a3e;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: #7a6e62;
+    gap: 6px;
   }
 
   .left_navbar a:hover,
   .left_navbar a.active {
     border-left-color: transparent;
-    border-top-color: #b5936a;
-    background: #2a2318;
+    border-bottom-color: #b5936a;
+    background: #fdf6ee;
+    border-radius: 0;
     color: #b5936a;
   }
 
   .left_navbar .logout {
-    flex: 1;
-    flex-direction: column;
+    flex: 0 0 auto;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 2px;
-    padding: 6px 2px;
-    font-size: 0.6rem;
-    border-top: 2px solid transparent;
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    border-top: none;
+    border-bottom: 2.5px solid transparent;
     border-left: none;
     margin: 0;
-    text-align: center;
-    color: #8a4a42;
     white-space: nowrap;
+    color: #c0392b;
   }
 
   .left_navbar .logout:hover {
-    border-top-color: #c0392b;
+    border-bottom-color: #c0392b;
     border-left-color: transparent;
-    background: #251815;
-    color: #e05a4e;
+    background: #fdf0ee;
   }
 
+  /* Top navbar full width */
   .top_navbar {
     left: 0;
-    position: fixed;
-    top: 0;
-    padding: 0 16px;
     height: 52px;
+    padding: 0 16px;
   }
 
+  /* Content pushed below topbar + scrollable nav */
   .admin_page_content {
     margin-left: 0;
-    margin-top: 52px;
-    margin-bottom: 60px;
+    margin-top: 100px;   /* 52px topbar + 48px subnav */
+    margin-bottom: 16px;
     padding: 16px 14px;
   }
 }
