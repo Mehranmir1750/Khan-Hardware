@@ -15,7 +15,7 @@ const getTransactions = async () =>{
   try{
 
     const response = await axios.get(
-      `${import.meta.env.VITE_API_URL}/api/transaction`,
+      `${import.meta.env.VITE_API_URL}/transaction`,
       {
         headers: {
   Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -38,7 +38,12 @@ const getTransactions = async () =>{
 
 const deleteTransaction = async(id)=>{
   try{
-    await axios.delete(`http://localhost:5000/api/transaction/${id}`);
+    // await axios.delete(`http://localhost:5000/api/transaction/${id}`);
+    await axios.delete(`${import.meta.env.VITE_API_URL}/transaction/${id}`, {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`
+  }
+});
 
     getTransactions()
   } catch (err) {
