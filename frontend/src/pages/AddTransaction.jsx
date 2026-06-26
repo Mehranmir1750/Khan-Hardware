@@ -23,7 +23,7 @@ const [unit, setUnit] = useState("kg");
   try {
 
     const response = await axios.get(
-      "http://localhost:5000/api/customers"
+      `${import.meta.env.VITE_API_URL}/customers`
     );
 
     setCustomers(response.data);
