@@ -27,7 +27,7 @@ export default function Edit() {
         `${import.meta.env.VITE_API_URL}/transaction/${id}`,
          {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`  // ← add this
+          Authorization: `Bearer ${localStorage.getItem("token")}`  
         }
       }
       );
