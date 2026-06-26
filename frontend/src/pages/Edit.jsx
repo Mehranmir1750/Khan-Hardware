@@ -24,7 +24,7 @@ export default function Edit() {
     try {
 
       const response = await axios.get(
-        `http://localhost:5000/api/transaction/${id}`
+        `${import.meta.env.VITE_API_URL}/transaction/${id}`
       );
 
       const t = response.data;
